@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js" defer></script>
+  </head>
+
+  <body onload="loadArticles()">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="articleInput">Article</label>
+            <select class="form-control" id="articleInput"></select>
+          </div>
+          <div class="form-group">
+            <label for="quantiteInput">Quantité</label>
+            <input
+              min="1"
+              type="number"
+              class="form-control"
+              id="quantiteInput"
+              value="1"
+            />
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="detailsFactureInput"
+                onchange="afficherDetails()"
+              />
+              <label class="form-check-label" for="detailsFactureInput"
+                >Details Facture</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="detailsTotalInput"
+                onchange="afficherTotal()"
+              />
+              <label class="form-check-label" for="detailsTotalInput"
+                >Total</label
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <label class="form-check-label" for="mr">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  name="civilite"
+                  value="Mr"
+                  id="mr"
+                />Mr
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label" for="mme">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  name="civilite"
+                  value="Mme"
+                  id="mme"
+                />Mme
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="clientInput">Client</label>
+            <input type="text" class="form-control" id="clientInput" />
+          </div>
+          <button type="submit" onclick="valider()" class="btn btn-primary">
+            Submit
+          </button>
+          <br />
+          <br />
+          <br />
+          <div id="detailsFacture" style="display: none">
+            <h3>Détails facture:</h3>
+            <h4 id="nomClient"></h4>
+            <ul id="details"></ul>
+          </div>
+          <div id="detailsTotal" style="display: none">
+            <h3>Total</h3>
+            <p id="prixTotal"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
